@@ -45,7 +45,7 @@ jobs:
             ghcr.io/${{ github.repository }}
           tags: |
             type=ref,event=pr
-            type=raw,value=${{ env.version }}
+            type=raw,value=${{ env.version }},enable=${{ github.ref == 'refs/heads/main'}}
 
       - uses: actions/checkout@v4
 
