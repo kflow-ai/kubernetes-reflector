@@ -2,6 +2,8 @@ name: Build and Push Image
 
 on:
   push:
+    branches:
+      - main
     paths:
       - "src/**"
       - ".github/workflows/**"
@@ -34,7 +36,6 @@ jobs:
         uses: docker/metadata-action@v5
         id: meta
         with:
-          context: git
           images: |
             ghcr.io/kflow-ai/kubernetes-reflector
           tags: |
