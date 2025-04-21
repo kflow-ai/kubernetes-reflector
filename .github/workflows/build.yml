@@ -47,9 +47,12 @@ jobs:
             type=ref,event=pr
             type=raw,value=${{ env.version }}
 
+      - uses: actions/checkout@v4
+
       - name: Build and Push
         uses: docker/build-push-action@v6
         with:
+          context: src/
           file: src/ES.Kubernetes.Reflector/Dockerfile
           cache-to: type=gha,mode=min
           cache-from: type=gha
